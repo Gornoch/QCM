@@ -1,0 +1,261 @@
+    1. Quelle est la syntaxe de base d’une déclaration de variable en JavaScript ?
+		
+		Initialement " var NomDeLaVariable = ValeurDeLaVariable;". Toutefois il est mieux d'utiliser "let".
+
+    2. Quelle est la différence entre let et var en JavaScript?
+
+		"var" est la syntaxe d'origine pour déclarer une variable mais c'est un outil archaïque. "let" a la même fonction que "var" mais est plus adapté aux contraintes et pratiques actuelles.
+
+    3. Quelle est la différence entre null et undefined en JavaScript?
+
+		"null" et "undefined" renvoient toutes les deux à une absence de valeur mais n'ont pas la même utilité. "null" est la déclaration intentionnelle que la variable est vide. "undefined" définie une variable qui existe mais à laquelle aucune valeur n'a encore été assigné.
+
+		
+    4. Comment concaténer deux chaînes de caractères en JavaScript?
+
+		let DeuxChainesDeCaractères = 'Première chaîne de caractères. ' + 'Seconde chaîne de caractères.';
+
+    5. Comment convertir une chaîne en entier en JavaScript?
+
+		Grâce à la fonction "ParseInt()".
+		Ex :
+		let nombre = '152.3684'; 
+		let entier = parseInt(nombre);
+
+    6. Comment créer une fonction en JavaScript?
+
+		function carré(nombre) {
+  			return nombre * nombre;
+		}
+
+		Il est également possible d'utiliser la syntaxe " => " pour fluidifier le code :
+
+		const carré = (nombre) => {
+			return nombre * nombre;
+		}
+
+    7. Quelle est la différence entre une fonction déclarative et une fonction exprimée en JavaScript?
+
+		Réponse à la question précédente : La première version de la fonction est déclarative. Elle a une portée globale sur le code. La seconde version de la fonction est expressive (peut-on utiliser ce terme ?). Outre que le code est plus propre la portée de la fonction est limitée à un cadre plus précis. 
+
+    8. Comment appeler une fonction en JavaScript?
+
+		En reprenant les exemples précédents : carré(666);
+		On appelle la fonction carré en lui donnant un argument valant 666. La fonction renverra la valeur 443 556.
+		
+    9. Comment passer des arguments à une fonction en JavaScript?
+
+		 Les arguments sont passés par copie dans une pile qu'on appelle la pile d'exécution. Voir réponse précédente.
+
+    10. Comment utiliser une boucle for en JavaScript?
+
+		const nombreDePoulets = 10;
+		for (let i = 0; i < nombresDePoulets; i++) {
+   		console.log('Le poulailler est plein.');
+		}
+
+		On créé une variable i qui sert de compteur pour définir le nombre de fois où la boucle devra se résoudre en partant de la valeur 0. Tant que i est inférieur à la constante déclarée la boucle va se reproduire. 
+
+    11. Comment utiliser une boucle while en JavaScript?
+
+		let nichesLibres = 10;
+		let pouletsEnAttente = 8;
+		let pouletsEnPlace = 0;
+
+		while (nichesLibres > 0 && PouletsEnAttente > 0) {
+   			pouletsEnPlace ++; 
+    			pouletsEnAttente --; 
+    			nichesLibres --;
+		}
+		console.log('Il restera ' + nichesLibres ' niches disponibles dans le poulailler');
+
+		Là où "for" se poursuit jusqu'à ce que la condition de boucle soit fausse, "while" se poursuit tant que sa condition est vraie.
+
+    12. Comment utiliser une boucle do...while en JavaScript?
+
+		let nombreDePoulets = 0;
+
+		do {
+  		nombreDePoulets ++;
+  		console.log('Il y a ' + nombreDePoulets + ' poulets désormais.');
+		} while (nombreDePoulets < 5);
+
+		Cette boucle va se répéter tant que la condition déclarée est vraie. L'état de la condition est vérifiée après l'application de la boucle, cela veux dire que la boucle "do ... while" s'appliquera toujours au moins une fois.
+		
+    13. Comment utiliser l’instruction break dans une boucle en JavaScript?
+
+		let nombreDePoulets = 0;
+
+		while (true) {
+  		nombreDePoulets ++;
+ 		console.log('Il ya ' + nombreDePoulets + ' poulets désormais et c'est bien assez. Faut les entretenir ces bestioles...');
+  		if (nombreDePoulets >= 5) {
+   		 break;
+  			}
+		}
+
+		L'instruction "break" permet de quitter prématurément une boucle avant que la condition déclarée ne change d'état. On définie donc une limite qui va forcer la boucle à s'arrêter.	
+
+    14. Comment utiliser l’instruction continue dans une boucle en JavaScript?
+
+		
+		var i = 0;
+		var n = 0;
+		while (i < 5) {
+  		 i++;
+  		 if (i === 3) {
+    		  continue;
+  		 }
+  		 n += i;
+		}
+
+		L'instruction "continue" stope le déroulement d'une boucle en cours mais reprend le processus à l'instance suivante. Par contre je ne vois pas bien comment appliquer un exemple à des poulets...
+
+    15. Quelle est la différence entre l’opérateur == et l’opérateur === en JavaScript ?
+
+		"==" et "===" servent tous deux à comparer des variables. "==" comparera les deux variables quelques soit leur type alors que "===" est plus strict et comparera à la fois le type et la valeur des deux variables.
+
+
+    16. Comment utiliser un opérateur ternaire en JavaScript ?
+
+		var stop = false, age = 23;
+
+		age > 18 ? (
+    		console.log('OK, accès autorisé.'),
+    		location.assign('continue.html')
+		) : (
+    		stop = true,
+    		console.log('Accès refusé !')
+		);
+
+		L'opérateur ternaire est similaire à une déclaration de type "if ... else". Il conduit à un résultat différent en fonction de la résolution d'une condition de type "true" ou "false".
+
+		
+    17. Comment créer un tableau en JavaScript ?
+
+		const listeDeCourse = ['blancs de poulet','biographie de Michel Drucker','graines pour poulets','lait'];
+
+    18. Comment accéder à un élément d’un tableau en JavaScript?
+
+		const listeDeCourse = ['blancs de poulet','biographie de Michel Drucker','graines pour poulets','lait'];
+		listeDeCourse[0];
+
+		Cette commande va renvoyer vers la valeur 0 du tableau soit 'blancs de poulet'. La numération d'une liste d'un tableau js commence toujours par 0.		
+
+    19. Comment utiliser la méthode push pour ajouter un élément à la fin d’un tableau en JavaScript?
+
+		const listeDeCourse = ['blancs de poulet','biographie de Michel Drucker','graines pour poulets','lait'];
+		listeDeCourse.push('lime à ongle');
+
+		Cette commande va rajouter la lime à ongle à la fin du tableau à la cinquième place. 
+
+    20. Comment utiliser la méthode pop pour supprimer un élément de la fin d’un tableau en JavaScript?
+
+		const listeDeCourse = ['blancs de poulet','biographie de Michel Drucker','graines pour poulets','lait'];
+		listeDeCourse.pop();
+
+		Cette commande va supprimer le dernier élément du tableau.
+
+    21. Comment utiliser la méthode shift pour supprimer un élément du début d’un tableau en JavaScript?
+
+		
+		const listeDeCourse = ['blancs de poulet','biographie de Michel Drucker','graines pour poulets','lait'];
+		listeDeCourse.shift();
+
+		Cette commande va supprimer le premier élément du tableau.
+		
+    22. Comment utiliser la méthode unshift pour ajouter un élément au début d’un tableau en JavaScript?
+
+		
+		const listeDeCourse = ['blancs de poulet','biographie de Michel Drucker','graines pour poulets','lait'];
+		const dernierElement = listeDeCourse.unshift('lime à ongle');
+
+		Cette commande va ajouter un élément en première place du tableau (valeur 0).
+
+    23. Comment utiliser la méthode splice pour ajouter, supprimer ou remplacer des éléments d’un tableau en JavaScript?
+
+		const listeDeCourse = ['blancs de poulet','biographie de Michel Drucker','graines pour poulets','lait'];
+		listeDeCourse.splice(1, 0, 'lime à ongle');
+
+		Cette commande va ajouter un élément à la position de la valeur 1.
+
+		const listeDeCourse = ['blancs de poulet','biographie de Michel Drucker','graines pour poulets','lait'];
+		listeDeCourse.splice(1, 1);
+
+		Cette commande va supprimer l'élément de valeur 1 (biographie de Michel Drucker).
+
+		
+		const listeDeCourse = ['blancs de poulet','biographie de Michel Drucker','graines pour poulets','lait'];
+		listeDeCourse.splice(1, 2, 'le petit chaperon rouge');
+
+		Cette commande va remplacer l'élement de valeur 1 par une nouvelle entrée dans le tableau.
+
+
+    24. Comment utiliser la méthode slice pour copier un sous - tableau d’un tableau en JavaScript?
+
+		const listeDeCourse = ['blancs de poulet','biographie de Michel Drucker','recettes de cuisine','lait'];
+		const livre = listeDeCourse.slice(1,2);
+
+		Cette commande va créer une sous-tableau à partir des données du tableau initial. 
+
+    25. Comment parcourir un tableau en JavaScript avec la méthode forEach ?
+
+		const listeDeCourse = ['blancs de poulet','biographie de Michel Drucker','recettes de cuisine','lait'];
+		listeDeCourse.forEach(fuction(element) {
+		console.log(element);
+		});
+
+		Chaque entrée du tableau apparait alors sur une ligne séparée.
+
+		
+    26. Comment utiliser la méthode map pour transformer chaque élément d’un tableau en JavaScript?
+
+		const listeNombre = [1, 4, 9, 16];
+		const multiplication = listeNombre.map(x => x * 2);
+		console.log(multiplication);
+
+    27. Comment utiliser la méthode filter pour filtrer les éléments d’un tableau en JavaScript?
+
+		const listeDeCourse = ['blancs de poulet','biographie de Michel Drucker','recettes de cuisine','lait'];
+		const lePlusImportant = listeDeCourse.filter(word == biographie de Michel Drucker);
+		console.log(lePlusImportant);
+
+
+    28. Comment utiliser la méthode reduce pour réduire un tableau en une valeur unique en JavaScript ?
+
+		const listeNombre = [1, 2, 3, 4];
+		const base = 0;
+		const calcul = listeNombre.reduce(
+  		(accumulator, currentValue) => accumulator + currentValue, base );
+		console.log(calcul);
+
+console.log(sumWithInitial);
+
+    29. Comment créer un objet en JavaScript ?
+
+		const monChat = {
+		nom = "Wanda";
+		race = "chat de gouttière";
+		age = 4;
+		};
+
+    30. Comment accéder à une propriété d’un objet en JavaScript ?
+
+		monChat.nom;
+		
+		Soit par exemple console.log(monChat.nom);
+		
+
+    31. Comment définir une propriété d’un objet en JavaScript ?
+
+		monChat.prototype.couleur = null;
+		monChat.couleur = "noir et blanc";
+
+
+    32. Comment supprimer une propriété d’un objet en JavaScript ?
+
+		delete monChat.race;
+
+    33. Quelle différence entre java et javascript ?
+
+		Ce ne sont deux langages de programmation différents. Java permet de créer des applications qui sont exécutées sur une machine ou un navigateur virtuel tandis que JavaScript est exécuté uniquement sur un navigateur. Java doit être compilé tandis que JavaScript est composé de texte.
